@@ -49,28 +49,7 @@ blocks:
             - cp .env.example .env
             # We need to generate an application key for Laravel to work.
             - php artisan key:generate
-
-  - name: "Run Code Analysis"
-    task:
-      prologue:
-        commands:
-          - checkout
-          - cache restore
-      jobs:
-        - name: phpmd
-          commands:
-            # Run the PHP Mess Detector from our project dependency binary
-            - php vendor/bin/phpmd app/ text phpmd_ruleset.xml
-        - name: phpcs
-          commands:
-            # Run the PHP Code Sniffer from our project dependency binary
-            - php vendor/bin/phpcs app --report-full --standard=PSR2
-        - name: phpcpd
-          commands:
-            # Run the PHP Copy Paste Detector from online repository.
-            - curl -L https://phar.phpunit.de/phpcpd.phar -o phpcpd.phar
-            - php phpcpd.phar app/ --min-lines=50
-
+            
   - name: "Run Unit tests"
     task:
       jobs:
