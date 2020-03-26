@@ -49,7 +49,7 @@ blocks:
             - cp .env.example .env
             # We need to generate an application key for Laravel to work.
             - php artisan key:generate
-            - php artisan config:cache
+           
             
   - name: "Run Unit tests"
     task:
@@ -58,8 +58,8 @@ blocks:
         commands:
           - checkout
           - cache restore
+          - cp .env.example .env
           - php artisan key:generate
-          - php artisan config:cache
           # Run the unit tests from the phpunit binary in vendor folder
           - ./vendor/bin/phpunit
 
