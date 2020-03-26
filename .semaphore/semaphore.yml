@@ -58,6 +58,8 @@ blocks:
         commands:
           - checkout
           - cache restore
+          - php artisan key:generate
+          - php artisan config:cache
           # Run the unit tests from the phpunit binary in vendor folder
           - ./vendor/bin/phpunit
 
