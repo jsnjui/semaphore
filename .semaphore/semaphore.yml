@@ -94,4 +94,4 @@ blocks:
             # Install Secuirity Checker dependencies (not to be confused by our project dependencies)
             - composer install
             # Finally, run the check
-            - php security-checker security:check ../composer.locko
+            - php security-checker security:check ../composer.lock
