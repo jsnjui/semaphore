@@ -95,3 +95,6 @@ blocks:
             - composer install
             # Finally, run the check
             - php security-checker security:check ../composer.lock
+promotions:
+  - name: Production deploy
+    pipeline_file: production-deploy.yml
